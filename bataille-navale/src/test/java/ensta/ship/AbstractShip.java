@@ -2,11 +2,18 @@ package ensta.ship;
 
 
 public class AbstractShip {
+	
+		/* **
+		 * Attributes
+		 */
 		private char label;
 		private String name;
 		private int size;
-		private int direction;
+		private Directions direction;
 		
+		/* **
+		 * Encapsulation
+		 */
 		public char getLabel(){
 		      return label;
 		}
@@ -19,7 +26,7 @@ public class AbstractShip {
 		      return size;
 		}
 		
-		public int getDirection(){
+		public Directions getDirection(){
 		      return direction;
 		}
 		
@@ -28,15 +35,19 @@ public class AbstractShip {
 		 * @param name String
 		 * @param label char
 		 * @param size int
-		 * @param d char
+		 * @param d Directions
 		 */
 
-		public AbstractShip(String name, char label, int size, char d) {
+		public AbstractShip(String name, char label, int size, Directions d) {
 			this.name = name;
 	    	this.label = label;
 	    	this.size = size;
 	    	this.direction = d;
 	    }
+		
+		/* **
+	     * Methods
+	     */
 		
 		/**
 		 * Convert its direction to a 2Dvector 
@@ -47,22 +58,22 @@ public class AbstractShip {
 			
 			int[] vec= {0,0};
 			switch (this.direction) {
-			case 'n': 
+			case NORTH: 
 				vec[0]=-1;
 				vec[1]=0;
 				return vec;
 			
-			case 's': 
+			case SOUTH: 
 				vec[0]=1;
 				vec[1]=0;
 				return vec;
 				
-			case 'w': 
+			case WEST: 
 				vec[0]=0;
 				vec[1]=-1;
 				return vec;	
 				
-			case 'e': 
+			case EAST: 
 				vec[0]=0;
 				vec[1]=1;
 				return vec;
