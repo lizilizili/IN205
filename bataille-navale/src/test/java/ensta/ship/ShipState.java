@@ -23,6 +23,7 @@ public class ShipState {
 			throw new IllegalArgumentException("Cette position est deja touche!");
 		}
 		this.struck=true;
+		this.ship.addSrike();
 	}
 	
 	/**

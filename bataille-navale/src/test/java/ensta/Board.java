@@ -119,6 +119,33 @@ public class Board implements IBoard{
     public Boolean getHit(int x, int y) {
     	return (this.hits[x][y]);
     }
+    
+    /**
+     * Sends a hit at the given position
+     * @param x
+     * @param y
+     * @return status for the hit (eg : strike or miss)
+     */
+    public Hit sendHit(int x, int y) {
+    	if (this.hasShip(x, y)) {
+    		this.ships[x][y].ship.addSrike();
+    		
+    		if (!this.ships[x][y].ship.isSunk()) return Hit.STIKE;
+    		//case if a ship is Sunk
+    		switch (this.ships[x][y].ship.getLabel()) {
+    		case 'D':
+    			return Hit.DESTROYER;
+    		case 'S':
+    			return Hit.SUBMARINE;
+    		case 'B':
+    			return Hit.BATTLESHIP;
+    		case 'C':
+    			return Hit.CARRIER;
+    		}
+    	}
+    	return Hit.MISS;
+    }
+
 	/**
 	 * Print Board
 	 */
