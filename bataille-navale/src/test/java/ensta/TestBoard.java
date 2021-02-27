@@ -72,6 +72,9 @@ public class TestBoard {
 			hit=board.sendHit(5,3);
 			System.out.println("Frappe D6 :"+hit.toString());
 			
+			System.out.println("Essayer de refrapper F7");
+			hit=board.sendHit(6,5);
+			System.out.println("Frappe F7 :"+hit.toString());
 		}catch (Exception e) {
 			System.out.println(e);
 		}

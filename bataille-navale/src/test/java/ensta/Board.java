@@ -128,8 +128,9 @@ public class Board implements IBoard{
      */
     public Hit sendHit(int x, int y) {
     	if (this.hasShip(x, y)) {
-    		this.ships[x][y].ship.addSrike();
     		
+    		this.ships[x][y].addStrike();
+    			
     		if (!this.ships[x][y].ship.isSunk()) return Hit.STIKE;
     		//case if a ship is Sunk
     		switch (this.ships[x][y].ship.getLabel()) {
