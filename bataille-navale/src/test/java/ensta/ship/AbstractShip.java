@@ -10,6 +10,7 @@ public class AbstractShip {
 		private String name;
 		private int size;
 		private Directions direction;
+		private int strikeCount=0;
 		
 		/* **
 		 * Encapsulation
@@ -29,10 +30,14 @@ public class AbstractShip {
 		public int getSize(){
 		      return size;
 		}
+		
 		public Directions getDirection(){
 		      return direction;
 		}
 		
+		public void setDirection(Directions direction){
+		      this.direction=direction;
+		}
 		/**
 		 * AbstractShip Constructor
 		 * @param name String
@@ -88,10 +93,14 @@ public class AbstractShip {
 		}
 		
 		/**
-		 * Set direction 
-		 * @param direction
+		 * Add strike number  
 		 */
-		public void setDirection(Directions direction){
-		      this.direction=direction;
-		}
+		public void addSrike() {this.strikeCount++;}
+		
+		/**
+		 *  Get if the ship is sunk
+		 *  @return true if the ship is sunk
+		 */
+		public boolean isSunk() {return (this.size == this.strikeCount);}
+		
 }

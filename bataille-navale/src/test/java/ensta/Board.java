@@ -1,6 +1,6 @@
 package ensta;
 
-import ensta.ship.AbstractShip;
+import ensta.ship.*;
 
 public class Board implements IBoard{
 	
@@ -8,8 +8,9 @@ public class Board implements IBoard{
      * Attributes
      */
 	public String name;
-	public char[][] navires;
-	public boolean[][] frappes;
+	public ShipState[][] ships;
+	public Boolean[][] hits;
+	
 	
 	
 	/**
@@ -20,13 +21,14 @@ public class Board implements IBoard{
 	public Board(String name, int size) {
 		
     	this.name=name;
-    	this.frappes=new boolean[size][size];
-    	this.navires=new char[size][size];
+    	this.hits=new Boolean[size][size];
+    	this.ships=new ShipState[size][size];
         for (int i=0;i<size;i++)
         	for (int j=0;j<size;j++)
         	{
-        		this.frappes[i][j]=false;
-            	this.navires[i][j]='.';
+        		this.hits[i][j]=null;
+            	this.ships[i][j]=new ShipState();
+            	this.ships[i][j].ship=null;
         	}
     }
 	
@@ -47,7 +49,7 @@ public class Board implements IBoard{
      * Get the size of the grids contained in the Board
      * @return the size of the grids contained in the Board
      */
-    public int getSize() {return this.frappes.length;}
+    public int getSize() {return this.hits.length;}
 
     /**
     * Put the given ship at the given position
@@ -59,7 +61,7 @@ public class Board implements IBoard{
     	
     	int shipSize=ship.getLength();
     	int gridSize=this.getSize();
-    	char label=ship.getLabel();
+    	//char label=ship.getLabel();
     	int [] direction=ship.dir2vertor();
     	for (int i=0;i<shipSize;i++)
     	{
@@ -80,7 +82,7 @@ public class Board implements IBoard{
     	{
     		int x_pre=x+direction[0]*i;
     		int y_pre=y+direction[1]*i;
-    		this.navires[x_pre][y_pre]=label;
+    		this.ships[x_pre][y_pre].ship=ship;
     	}
     }
 
@@ -91,7 +93,7 @@ public class Board implements IBoard{
      * @return true if a ship is located at the given position
      */
     public boolean hasShip(int x, int y) {
-    	return (this.navires[x][y]!='.'); 	
+    	return (this.ships[x][y].ship!=null); 	
     }
 
     /**
@@ -101,7 +103,11 @@ public class Board implements IBoard{
      * @param y
      */
     public void setHit(boolean hit, int x, int y) {
-    	if (this.getHit(x, y)) this.navires[x][y]='x';
+    	if (this.getHit(x, y)!=null) 
+		{
+			throw new IllegalArgumentException("Cette position est deja touche!");
+		}
+		this.hits[x][y]=hit;
     }
 
     /**
@@ -111,7 +117,7 @@ public class Board implements IBoard{
      * @return true if the hit is successful
      */
     public Boolean getHit(int x, int y) {
-    	return (this.navires[x][y]!= '.' && this.navires[x][y]!= 'x');
+    	return (this.hits[x][y]);
     }
 	/**
 	 * Print Board
@@ -132,12 +138,20 @@ public class Board implements IBoard{
 		for (int i=0;i<taille;i++) {
 			s=""+(i+1);
 			if (i<9) s+=" ";
-			for (int j=0;j<taille;j++) s+=" "+this.navires[i][j];
+			for (int j=0;j<taille;j++) {
+				if (this.ships[i][j].ship==null) s+=" .";
+				else s+=" "+this.ships[i][j].toString();
+			}
+				
 			s+="       "+(i+1);
 			if (i<9) s+=" ";
 			for (int j=0;j<taille;j++) {
-				if (this.frappes[i][j]) s +=" "+"x";
-				else  s +=" "+".";
+				if(this.hits[i][j]==null) s +=" "+".";
+				else {
+					if(this.hits[i][j]==true) s +=" "+ColorUtil.colorize("X",ColorUtil.Color.RED);
+					if(this.hits[i][j]==false) s +=" "+ColorUtil.colorize("X",ColorUtil.Color.WHITE);
+			
+				}
 			}
 			System.out.println(s);
 		}	
