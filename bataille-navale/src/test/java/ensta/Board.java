@@ -57,7 +57,7 @@ public class Board implements IBoard{
     */
     public void putShip(AbstractShip ship, int x, int y) {
     	
-    	int shipSize=ship.getSize();
+    	int shipSize=ship.getLength();
     	int gridSize=this.getSize();
     	char label=ship.getLabel();
     	int [] direction=ship.dir2vertor();

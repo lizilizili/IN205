@@ -7,7 +7,7 @@ public class AircraftCarrier extends AbstractShip {
 	 */
 
 	public AircraftCarrier(Directions d) {
-		super("AircraftCarrier",'A',5,d);
+		super("AircraftCarrier",'C',5,d);
     }
 	
 	/**
@@ -15,6 +15,6 @@ public class AircraftCarrier extends AbstractShip {
 	 */
 	
 	public AircraftCarrier() {
-		super("AircraftCarrier",'A',5,Directions.EAST);
+		super("AircraftCarrier",'C',5,Directions.EAST);
     }
 }

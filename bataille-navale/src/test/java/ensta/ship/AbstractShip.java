@@ -22,10 +22,13 @@ public class AbstractShip {
 		      return name;
 		}
 		
-		public int getSize(){
+		public int getLength(){
 		      return size;
 		}
 		
+		public int getSize(){
+		      return size;
+		}
 		public Directions getDirection(){
 		      return direction;
 		}
@@ -82,5 +85,13 @@ public class AbstractShip {
 				throw new IllegalArgumentException("Unexpected value: " + this.direction);
 			}
 			
+		}
+		
+		/**
+		 * Set direction 
+		 * @param direction
+		 */
+		public void setDirection(Directions direction){
+		      this.direction=direction;
 		}
 }
