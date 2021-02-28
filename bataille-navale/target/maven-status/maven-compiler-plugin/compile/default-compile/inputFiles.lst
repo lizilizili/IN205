@@ -1,1 +1,17 @@
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/IBoard.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/Hit.java
 /mnt/d/Codes/bataille-navale/src/main/java/ensta/App.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/Player.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/ship/ShipState.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/AIPlayer.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/Game.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/ship/AircraftCarrier.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/ship/Destroyer.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/ship/Submarine.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/ship/Directions.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/ship/BattleShip.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/BattleShipsAI.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/Board.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/InputHelper.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/ship/AbstractShip.java
+/mnt/d/Codes/bataille-navale/src/main/java/ensta/ColorUtil.java

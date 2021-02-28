@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class App {
+public class Game {
 
     /* ***
      * Constant
@@ -23,9 +23,9 @@ public class App {
     /* ***
      * Constructors
      */
-    public App() {}
+    public Game() {}
 
-    public App init() {
+    public Game init() {
         if (!loadSave()) {
             // init attributes
             System.out.println("entre ton nom:");
@@ -176,6 +176,6 @@ public class App {
     }
 
     public static void main(String args[]) {
-        new App().init().run();
+        new Game().init().run();
     }
 }

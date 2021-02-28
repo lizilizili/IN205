@@ -12,6 +12,7 @@ ensta/ship/BattleShip.class
 ensta/InputHelper$CoordInput.class
 ensta/InputHelper$ShipInput.class
 ensta/ship/ShipState.class
+ensta/AIPlayer.class
 ensta/ship/AbstractShip$1.class
 ensta/ship/AbstractShip.class
 ensta/ColorUtil.class

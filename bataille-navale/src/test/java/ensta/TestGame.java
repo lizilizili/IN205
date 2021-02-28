@@ -52,7 +52,7 @@ public class TestGame {
 			System.out.println( "\nFrappe NO."+ count +" en " +coord1 + coord0+" : "+ hit.toString());
 			if (hit!=Hit.MISS && hit!=Hit.STIKE) countShip++;
 			board1.print();
-			sleep(2000);
+			sleep(1000);
 			
 		}
 		System.out.println("GAME OVER!");
