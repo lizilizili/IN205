@@ -1,4 +1,5 @@
 /mnt/d/Codes/bataille-navale/src/test/java/ensta/IBoard.java
+/mnt/d/Codes/bataille-navale/src/test/java/ensta/BattleShipsAI.java
 /mnt/d/Codes/bataille-navale/src/test/java/ensta/Board.java
 /mnt/d/Codes/bataille-navale/src/test/java/ensta/ColorUtil.java
 /mnt/d/Codes/bataille-navale/src/test/java/ensta/ship/Destroyer.java
@@ -11,4 +12,5 @@
 /mnt/d/Codes/bataille-navale/src/test/java/ensta/ship/Directions.java
 /mnt/d/Codes/bataille-navale/src/test/java/ensta/InputHelper.java
 /mnt/d/Codes/bataille-navale/src/test/java/ensta/ship/ShipState.java
+/mnt/d/Codes/bataille-navale/src/test/java/ensta/TestGame.java
 /mnt/d/Codes/bataille-navale/src/test/java/ensta/ship/AircraftCarrier.java

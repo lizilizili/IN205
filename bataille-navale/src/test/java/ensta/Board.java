@@ -150,7 +150,7 @@ public class Board implements IBoard{
 	/**
 	 * Print Board
 	 */
-	void print() {
+	public void print() {
 		int taille=this.getSize();
 		String s="";
 		for (int i=0;i<taille;i++) s+="  ";
