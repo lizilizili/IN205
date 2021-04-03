@@ -1,7 +1,9 @@
 package com.ensta;
 
-import com.ensta.librarymanager.model.*;
-import com.ensta.librarymanager.model.Membre.Abonnement;
+import com.ensta.librarymanager.modele.*;
+import com.ensta.librarymanager.modele.Membre.Abonnement;
+import com.ensta.librarymanager.dao.*;
+import com.ensta.librarymanager.exception.DaoException;
 
 import org.junit.Test;
 import java.time.LocalDate;
@@ -26,5 +28,16 @@ public class AppTest
         System.out.println(m1.toString());
         System.out.println(l1.toString());
         System.out.println(e1.toString());
+    }
+    
+    @Test
+    public void DaoTest() throws DaoException
+    {
+    	LivreDao lDao=LivreDaoImpl.getInstance();
+    	System.out.println("TEST EX3 :");
+    	lDao.getById(3);
+    	lDao.create("titre1", "Auther1","Isbn1");	
+    	lDao.count();
+    	
     }
 }

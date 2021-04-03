@@ -1,4 +1,4 @@
-package com.ensta.librarymanager.model;
+package com.ensta.librarymanager.modele;
 
 public class Livre {
 	int id;
@@ -53,4 +53,8 @@ public class Livre {
         this.auteur = auteur;
         this.isbn = isbn;
     }
+
+	public Livre() {
+		
+	}
 }

@@ -1,4 +1,4 @@
-package com.ensta.librarymanager.model;
+package com.ensta.librarymanager.modele;
 import java.time.LocalDate;
 
 public class Emprunt {
