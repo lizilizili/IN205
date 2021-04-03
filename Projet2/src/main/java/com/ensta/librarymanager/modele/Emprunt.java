@@ -14,8 +14,8 @@ public class Emprunt {
 
     @Override
     public String toString() {
-        return "Emprunt [id=" + id + ", " + membre.toString() + ", " + livre.toString() 
-        		+ ", dateEmprunt=" + dateEmprunt.toString() + ", dateRetour=" + dateRetour.toString() +"]";
+    	return "Emprunt [id=" + id + ", " + membre.toString() + ", " + livre.toString() 
+        	+ ", dateEmprunt=" + dateEmprunt.toString() + ", dateRetour=" + dateRetour +"]";
     }
 
     public int getId() {
@@ -65,5 +65,9 @@ public class Emprunt {
         this.dateEmprunt = dateEmprunt;
         this.dateRetour = dateRetour;
     }
+
+	public Emprunt() {
+		// TODO Auto-generated constructor stub
+	}
 
 }

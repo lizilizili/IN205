@@ -195,7 +195,6 @@ public class LivreDaoImpl implements LivreDao {
 	public void delete(int id) throws DaoException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		Livre livre=this.getById(id);
 		try {
 			connection = EstablishConnection.getConnection();
 			preparedStatement = connection.prepareStatement(DELETE_QUERY);
@@ -203,9 +202,9 @@ public class LivreDaoImpl implements LivreDao {
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			connection.close();
-			System.out.println("DELETE: " + livre);
+			System.out.println("DELETE: " + id);
 		} catch (SQLException e) {
-			throw new DaoException("Problème lors de la suppression du livre: " + livre, e);
+			throw new DaoException("Problème lors de la suppression du livre: " + id, e);
 		}  finally {
 			try {
 				preparedStatement.close();

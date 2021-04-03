@@ -34,10 +34,27 @@ public class AppTest
     public void DaoTest() throws DaoException
     {
     	LivreDao lDao=LivreDaoImpl.getInstance();
+    	MembreDao mDao=MembreDaoImpl.getInstance();
+    	EmpruntDao eDao=EmpruntDaoImpl.getInstance();
     	System.out.println("TEST EX3 :");
-    	lDao.getById(3);
-    	lDao.create("titre1", "Auther1","Isbn1");	
-    	lDao.count();
     	
+    	System.out.println("\ntest getById(3) :");
+    	lDao.getById(3);
+    	System.out.println("\ntest create :");
+    	lDao.create("titre1", "Auther1","Isbn1");
+    	System.out.println("\ntest delete :");
+    	lDao.delete(12);
+    	System.out.println("\ntest count :");
+    	System.out.println("Livres count :");
+    	lDao.count();
+    	System.out.println("\ntest Membre.getList() :");
+    	mDao.getList();
+    	System.out.println("\nMembres count :");
+		mDao.count();
+		System.out.println("\ntest Emprunt.getCurrentList() :");
+		eDao.getListCurrent();
+		System.out.println("\nEmprunts count :");
+		eDao.count();
+		
     }
 }

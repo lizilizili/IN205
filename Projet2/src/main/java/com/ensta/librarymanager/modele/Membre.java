@@ -1,5 +1,7 @@
 package com.ensta.librarymanager.modele;
 
+import com.ensta.librarymanager.modele.Membre.Abonnement;
+
 public class Membre {
 	
 	int id;
@@ -8,7 +10,7 @@ public class Membre {
     
     String prenom;
     
-    String adress;
+    String adresse;
 
     String email;
     
@@ -20,7 +22,7 @@ public class Membre {
 
     @Override
     public String toString() {
-        return "Membre [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adress=" + adress +", email=" + email +
+        return "Membre [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse +", email=" + email +
         		", telephone=" + telephone +", abonnement=" + abonnement.toString() +"]";
     }
     
@@ -48,12 +50,12 @@ public class Membre {
         this.prenom = prenom;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAdresse() {
+        return adresse;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
     
     public String getEmail() {
@@ -82,15 +84,20 @@ public class Membre {
     }
     
 
-
-    public Membre(int id, String nom, String prenom, String adress,String email,String telephone, Abonnement abonnement) {
+    public Membre(int id, String nom, String prenom, String adresse,String email,String telephone, Abonnement abonnement) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
-        this.adress = adress;
+        this.adresse = adresse;
         this.email = email;
         this.telephone = telephone;
         this.abonnement = abonnement;
         
     }
+
+	public Membre() {
+		// TODO Auto-generated constructor stub
+	}
+	
 }
+	
