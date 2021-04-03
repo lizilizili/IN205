@@ -1,4 +1,4 @@
-package ensta;
+package com.ensta;
 
 import com.ensta.librarymanager.model.*;
 import com.ensta.librarymanager.model.Membre.Abonnement;
