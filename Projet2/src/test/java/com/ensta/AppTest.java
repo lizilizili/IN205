@@ -2,8 +2,15 @@ package com.ensta;
 
 import com.ensta.librarymanager.modele.*;
 import com.ensta.librarymanager.modele.Membre.Abonnement;
+import com.ensta.librarymanager.service.EmpruntService;
+import com.ensta.librarymanager.service.EmpruntServiceImpl;
+import com.ensta.librarymanager.service.LivreService;
+import com.ensta.librarymanager.service.LivreServiceImpl;
+import com.ensta.librarymanager.service.MembreService;
+import com.ensta.librarymanager.service.MembreServiceImpl;
 import com.ensta.librarymanager.dao.*;
 import com.ensta.librarymanager.exception.DaoException;
+import com.ensta.librarymanager.exception.ServiceException;
 
 import org.junit.Test;
 import java.time.LocalDate;
@@ -37,24 +44,44 @@ public class AppTest
     	MembreDao mDao=MembreDaoImpl.getInstance();
     	EmpruntDao eDao=EmpruntDaoImpl.getInstance();
     	System.out.println("TEST EX3 :");
-    	
+    	System.out.println("\ntest Livre.getList() :");
+    	lDao.getList();
     	System.out.println("\ntest getById(3) :");
     	lDao.getById(3);
     	System.out.println("\ntest create :");
     	lDao.create("titre1", "Auther1","Isbn1");
     	System.out.println("\ntest delete :");
-    	lDao.delete(12);
+    	lDao.delete(11);
     	System.out.println("\ntest count :");
     	System.out.println("Livres count :");
     	lDao.count();
-    	System.out.println("\ntest Membre.getList() :");
-    	mDao.getList();
     	System.out.println("\nMembres count :");
 		mDao.count();
 		System.out.println("\ntest Emprunt.getCurrentList() :");
 		eDao.getListCurrent();
 		System.out.println("\nEmprunts count :");
 		eDao.count();
+		
+    }
+    
+    @Test
+    public void ServiceTest() throws ServiceException
+    {
+    	LivreService lService=LivreServiceImpl.getInstance();
+    	MembreService mService=MembreServiceImpl.getInstance();
+    	EmpruntService eService=EmpruntServiceImpl.getInstance();
+    	System.out.println("TEST EX4 :");
+    	
+    	System.out.println("\ntest ListDispo :");
+    	System.out.println(lService.getListDispo());
+   
+    	System.out.println("\ntest Membre.getListMembreEmpruntPossible() :");
+    	System.out.println(mService.getListMembreEmpruntPossible());
+
+		System.out.println("\ntest isEmpruntPossibl pour idMembre =5 :");
+		System.out.println(eService.isEmpruntPossible(mService.getById(5)));
+		System.out.println("\ntest isEmpruntPossibl pour idMembre =6 :");
+		System.out.println(eService.isEmpruntPossible(mService.getById(6)));
 		
     }
 }
