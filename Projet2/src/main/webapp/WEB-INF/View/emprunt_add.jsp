@@ -28,15 +28,22 @@
 	          <div class="input-field col s6">
 	            <select id="idLivre" name="idLivre" class="browser-default">
 	              <option value="" disabled selected>-- Livres --</option>
-	              <!-- TODO : parcourir la liste des livres disponibles et afficher autant d'options que nécessaire, sur la base de l'exemple ci-dessous -->
-                  <option value="idDuLivre">"Titre du livre", de Nom de l'auteur</option>
+	               <c:if test="${! empty livresDispo }">
+					<c:forEach var="l" items="${livresDispo}">
+						 <option value="${l.id}"><c:out value="${l.titre}" /><c:out value=", ${l.auteur}" /></option>
+					</c:forEach>
+				</c:if>
+                 
 	            </select>
 	          </div>
 	          <div class="input-field col s6">
 	            <select id="idMembre" name="idMembre" class="browser-default">
 	              <option value="" disabled selected>-- Membres --</option>
-	              <!-- TODO : parcourir la liste des membres pouvant emprunter et afficher autant d'options que nécessaire, sur la base de l'exemple ci-dessous -->
-                  <option value="idDuMembre">Prénom et nom du membre</option>
+	              <c:if test="${! empty membresDispo }">
+					<c:forEach var="m" items="${membresDispo}">
+						 <option value="${m.id}"><c:out value="${m.prenom}" /><c:out value=", ${m.nom}" /></option>
+					</c:forEach>
+				</c:if>
 	            </select>
 	          </div>
 	        </div>

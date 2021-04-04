@@ -1,4 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +26,9 @@
         <div class="col l4 s6">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>12</h3> <!-- TODO : afficher le nombre de membres à la place de 12 -->
+              <h3>
+	<c:out value="${membresCount}" />
+              </h3> <!-- TODO : afficher le nombre de membres à la place de 12 -->
               <p>Membres</p>
             </div>
             <div class="icon">
@@ -35,7 +40,9 @@
         <div class="col l4 s6">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>27</h3> <!-- TODO : afficher le nombre de livres à la place de 27 -->
+              <h3>
+	<c:out value="${livresCount}" />
+             </h3> <!-- TODO : afficher le nombre de livres à la place de 27 -->
               <p>Livres</p>
             </div>
             <div class="icon">
@@ -47,7 +54,7 @@
         <div class="col l4 s6">
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>1515</h3> <!-- TODO : afficher le nombre d'emprunts à la place de 1515 -->
+              <h3><c:out value="${empruntsCount}" /></h3> <!-- TODO : afficher le nombre d'emprunts à la place de 1515 -->
               <p>Emprunts</p>
             </div>
             <div class="icon">
@@ -79,7 +86,16 @@
                         </td>
                     </tr>
                     
-                     <!-- TODO : parcourir la liste des emprunts en cours et les afficher selon la structure d'exemple ci-dessus -->
+                     <c:if test="${! empty currentEmprunts }">
+					<c:forEach var="e" items="${currentEmprunts}">
+						<tr>
+							<td><c:out value="${e.livre.titre}"/><c:out value=", ${e.livre.auteur}"/></td>
+							<td><c:out value="${e.membre.prenom}" /><c:out value=", ${e.membre.nom}" /></td>
+							<td><c:out value="${e.dateEmprunt}" /></td>
+							<td><a href="edit?id=${e.id}">edit</a> | <a href="delete?id=${e.id}">delete</a></td>													
+						</tr>
+					</c:forEach>
+				</c:if>
                 </tbody>
             </table>
           </div>
