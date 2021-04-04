@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
@@ -39,7 +41,17 @@
                         <td class="center"><a href="livre_details?id=idDuLivre"><ion-icon class="details" name="information-circle-outline"></ion-icon></a></td>
                     </tr>
                     
-                    <!-- TODO : parcourir la liste des livres et les afficher selon la structure d'exemple ci-dessus -->
+                    <c:if test="${! empty Livres }">
+		
+					<c:forEach var="l" items="${Livres}">
+						<tr>
+							<td><c:out value="${l.titre}"/></td>
+							<td><c:out value="${l.auteur}" /></td>
+							<td><c:out value="${l.isbn}" /></td>
+							<td class="center"><a href="livre_details?id=${l.id}"><ion-icon class="details" name="information-circle-outline"></ion-icon></a></td>													
+						</tr>
+					</c:forEach>
+				</c:if>
                 </tbody>
             </table>
           </div>

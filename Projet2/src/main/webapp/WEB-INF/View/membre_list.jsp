@@ -43,7 +43,18 @@
                 <td class="center"><a href="membre_details?id=idDuMembre"><ion-icon class="details" name="information-circle-outline"></ion-icon></a></td>
               </tr>
 
-              <!-- TODO : parcourir la liste des membres et les afficher selon la structure d'exemple ci-dessus -->
+              <c:if test="${! empty Membres }">
+					<c:forEach var="m" items="${Membres}">
+						<tr>
+							<td><c:out value="${m.nom}"/></td>
+							<td><c:out value="${m.prenom}" /></td>
+							<td><c:out value="${m.adresse}" /></td>
+							<td><c:out value="${m.email}" /></td>
+							<td><c:out value="${m.tel}" /></td>
+							<td class="center"><a href="membre_details?id=${m.id}"><ion-icon class="details" name="information-circle-outline"></ion-icon></a></td>													
+						</tr>
+					</c:forEach>
+				</c:if>
             </tbody>
           </table>
         </div>

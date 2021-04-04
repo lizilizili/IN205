@@ -28,9 +28,16 @@
 	          <div class="input-field col s12">
 	            <select id="id" name="id" class="browser-default">
 	              <option value="" disabled selected>---</option>
+		<option value="idDeLEmprunt">"Titre du livre", emprunté par Prénom et nom du membre emprunteur</option>
+		 <c:if test="${! empty currentEmprunts }">
+					<c:forEach var="e" items="${currentEmprunts}">
+						<tr>						
+ 							<option value="${e.id}"><c:out value="${e.livre.titre}"/>, <c:out value="${e.membre.prenom}" /><c:out value=", ${e.membre.nom}" /></option>											
+						</tr>
+					</c:forEach>
+				</c:if>
                   <!-- TODO : parcourir la liste des emprunts non rendus et afficher autant d'options que nécessaire, sur la base de l'exemple ci-dessous -->
                   <!-- TODO : si l'attribut id existe, l'option correspondante devra être sélectionnée par défaut (ajouter l'attribut selected dans la balise <option>) -->
-                  <option value="idDeLEmprunt">"Titre du livre", emprunté par Prénom et nom du membre emprunteur</option>
 	            </select>
 	          </div>
 	        </div>

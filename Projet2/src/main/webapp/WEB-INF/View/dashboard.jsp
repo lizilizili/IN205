@@ -92,7 +92,7 @@
 							<td><c:out value="${e.livre.titre}"/><c:out value=", ${e.livre.auteur}"/></td>
 							<td><c:out value="${e.membre.prenom}" /><c:out value=", ${e.membre.nom}" /></td>
 							<td><c:out value="${e.dateEmprunt}" /></td>
-							<td><a href="edit?id=${e.id}">edit</a> | <a href="delete?id=${e.id}">delete</a></td>													
+							<td><a href="emprunt_return?id="${e.id}""><ion-icon class="table-item" name="log-in"></a></td>													
 						</tr>
 					</c:forEach>
 				</c:if>

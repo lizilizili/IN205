@@ -25,14 +25,17 @@ public class LivreDetailsServlet extends HttpServlet{
     	EmpruntService eService=EmpruntServiceImpl.getInstance();
     	LivreService lService=LivreServiceImpl.getInstance();
 		List<Emprunt> emprunts = new ArrayList<>();
+		Livre livre=new Livre();
 		String inputId = request.getParameter("id");
 		try {
+			livre = lService.getById(Integer.parseInt(inputId));
 			emprunts = eService.getListCurrentByLivre(Integer.parseInt(inputId));			
 		} catch (ServiceException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/View/livre_details.jsp");
+		request.setAttribute("livre", livre);
 		request.setAttribute("currentEmprunts", emprunts);
 		dispatcher.forward(request, response);
 	}

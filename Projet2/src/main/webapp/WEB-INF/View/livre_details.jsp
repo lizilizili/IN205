@@ -74,8 +74,16 @@
                     <a href="emprunt_return?id=idDeLEmprunt"><ion-icon class="table-item" name="log-in"></a>
                   </td>
                 </tr>
-
-				<!-- TODO : parcourir la liste des emprunts en cours pour ce livre et les afficher selon la structure d'exemple ci-dessus -->
+	<c:if test="${! empty currentEmprunts }">
+					<c:forEach var="e" items="${currentEmprunts}">
+						<tr>
+							<td><c:out value="${e.livre.titre}"/><c:out value=", ${e.livre.auteur}"/></td>
+							<td><c:out value="${e.membre.prenom}" /><c:out value=", ${e.membre.nom}" /></td>
+							<td><c:out value="${e.dateEmprunt}" /></td>
+							<td><a href="emprunt_return?id=idDeLEmprunt"><ion-icon class="table-item" name="log-in"></a></td>													
+						</tr>
+					</c:forEach>
+				</c:if>
               </tbody>
             </table>
           </div>

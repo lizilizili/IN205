@@ -67,7 +67,7 @@ public class Membre {
     }
     
     public String getTel() {
-        return prenom;
+        return telephone;
     }
 
     public void setTel(String tel) {

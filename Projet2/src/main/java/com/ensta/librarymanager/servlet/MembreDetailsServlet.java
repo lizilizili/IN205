@@ -29,14 +29,17 @@ public class MembreDetailsServlet extends HttpServlet{
     	MembreService mService=MembreServiceImpl.getInstance();
 		List<Emprunt> emprunts = new ArrayList<>();
 		String inputId = request.getParameter("id");
+		Membre membre=new Membre();
 		try {
-			emprunts = eService.getListCurrentByMembre(Integer.parseInt(inputId));		
+			emprunts = eService.getListCurrentByMembre(Integer.parseInt(inputId));	
+			membre=mService.getById(Integer.parseInt(inputId));
 		} catch (ServiceException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/View/membre_details.jsp");
 		request.setAttribute("currentEmprunts", emprunts);
+		request.setAttribute("m", membre);
 		dispatcher.forward(request, response);
 	}
 

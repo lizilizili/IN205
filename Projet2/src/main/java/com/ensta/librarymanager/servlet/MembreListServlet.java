@@ -33,7 +33,7 @@ public class MembreListServlet extends HttpServlet{
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/View/membres_list.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/View/membre_list.jsp");
 		request.setAttribute("Membres", membres);
 		dispatcher.forward(request, response);
 	}

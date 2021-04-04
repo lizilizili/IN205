@@ -26,10 +26,13 @@ public class EmpruntListServlet extends HttpServlet{
     	EmpruntService eService=EmpruntServiceImpl.getInstance();
     	
 		List<Emprunt> emprunts = new ArrayList<>();
-	
+		String input = request.getParameter("show");
 		try {
-			emprunts = eService.getListCurrent();
-			
+			if (input == null)
+				emprunts = eService.getListCurrent();
+				
+			else
+				emprunts = eService.getList();
 		} catch (ServiceException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
